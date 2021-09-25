@@ -1,3 +1,4 @@
+import { Router, RouterModule } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,18 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TituloComponent implements OnInit {
 
   @Input() titulo = "";
-  constructor() { }
+  @Input() subtitulo = "Desde 2021";
+  @Input() iconClass = "fa fa-user";
+  @Input() botaoListar = false;
+  @Input() bgColor = "secondary";
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  listar(): void{
+    this.router.navigate([`${this.titulo.toLowerCase()}/lista`]);
   }
 
 }
